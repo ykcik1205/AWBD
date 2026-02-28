@@ -1,0 +1,67 @@
+  <!-- <h1 class="title">Welcome K234112E to Angular</h1> -->
+   <!-- <app-about></app-about> -->
+  <!-- <app-contact></app-contact> -->
+  <!-- <app-mybinding></app-mybinding> -->
+  <!-- <app-ptb1></app-ptb1> -->
+  <!-- <app-ptb2></app-ptb2> -->
+  <!-- <app-learndirective></app-learndirective> -->
+  <!-- <h3>Product Lists 1</h3>
+  <app-listproduct1></app-listproduct1>
+  <h3>Product Lists 2</h3>
+  <app-listproduct2></app-listproduct2> -->
+  <!-- <h3>Customer's product</h3>
+  <app-customer></app-customer> -->
+  <!-- <h3>Product Lists 3</h3>
+  <app-listproduct3></app-listproduct3> -->
+  <!-- <app-exercise18></app-exercise18> -->
+<div id = "container">
+  <ul>
+      <li><a routerLink="/not-found">HOME</a></li>
+      <li><a href = "#">PRODUCTS</a>
+        <ul>
+          <li><a routerLink="/product1">Product 1</a></li>
+          <li><a routerLink="/product2">Product 2</a></li>
+          <li><a routerLink="/product3">Product 3</a></li>
+        </ul>
+      </li>
+      <li><a href = "#">CUSTOMERS</a>
+        <ul>
+          <li><a routerLink="/list-customer">Customer List</a></li>
+          <li><a routerLink="/list-customer-service">Customer List - Service</a></li>
+          <li><a routerLink="/list-customer-http-service">Customer List - HTTP Service</a></li>
+        </ul>
+      </li>
+      <li> <a href="#">FORMS</a>
+        <ul>
+          <li> <a routerLink="/forms">Form</a></li>
+          <li> <a routerLink="/reactive-forms">Reactive Form</a></li>
+        </ul>
+      </li>
+      <li><a href = "#">External API</a>
+        <ul>
+          <li><a routerLink="/exercise26">Exercise26</a></li>
+          <li><a routerLink="/exercise27">Exercise27</a></li>
+          <li><a routerLink="/exercise28">Exercise28</a></li>
+        </ul>
+      </li>
+      <li><a href = "#">INTERNAL API</a>
+        <ul>
+          <li><a routerLink="/exercise39">Exercise39</a></li>
+          <li><a routerLink="/exercise41">Exercise41</a></li>
+          <li><a routerLink="/exercise43">Exercise43</a></li>
+          <li><a routerLink="/exercise45">Exercise45</a></li>
+          <li><a routerLink="/exercise47">Exercise47</a></li>
+          <li><a routerLink="/exercise50">Exercise50</a></li>
+        </ul>
+      </li>
+      <li> <a href="#">MongoDB - REST API</a>
+        <ul>
+          <li> <a routerLink="/exercise53">Exercise 53</a></li>         
+        </ul>
+      </li>
+      <li><a routerLink="/introduction">ABOUT</a></li>
+    </ul>
+  </div>
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>

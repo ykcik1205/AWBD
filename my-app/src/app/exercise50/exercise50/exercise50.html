@@ -1,0 +1,35 @@
+{{errMessage}}
+<h3>BOOKS INFORMATION MANAGEMENT</h3>
+<a routerLink="/exercise50-new">Create New</a>
+<table>
+    <tr>
+        <td>BookName</td>
+        <td>Price</td>
+        <td>Meta</td>
+        <td>Image</td>
+        <td>Date</td>
+        <td>Inventory</td>
+        <td>CDId</td>
+        <td>NXBId</td>
+        <td>Action</td>
+    </tr>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.BookName}}</td>
+            <td>{{book.Price}} </td>
+            <td class="meta">{{book.Meta}}</td>
+            <td>
+                <img src="http://localhost:3003/static/images/{{book.Image}}" width="50px" height="50px">
+            </td>
+            <td>{{book.Date}}</td>
+            <td>{{book.Inventory}}</td>
+            <td>{{book.CDId}}</td>
+            <td>{{book.NXBId}}</td>
+            <td>
+                <button [routerLink]="['/exercise50-edit', book.NXBId]" style="cursor: pointer;">Edit</button> |
+                <button [routerLink]="['/exercise50-details', book.NXBId]" style="cursor: pointer;">Details</button> |
+                <button [routerLink]="['/exercise50-delete', book.NXBId]" style="cursor: pointer;">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

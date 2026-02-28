@@ -1,0 +1,31 @@
+<p>Second Degree Equation</p>
+<table>
+    <tr>
+        <td>Coefficient a:</td>
+        <td>
+            <input type="number" [(ngModel)]="a_number">
+        </td>
+    </tr>
+    <tr>
+        <td>Coefficient b:</td>
+        <td>
+            <input type="number" [(ngModel)]="b_number">
+        </td>
+    </tr>
+    <tr>
+        <td>Coefficient c:</td>
+        <td>
+            <input type="number" [(ngModel)]="c_number">
+        </td>
+    </tr>
+    <tr>
+        <td>Result:</td>
+        <td>{{result}}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="get_solution()">Get Result</button>
+        </td>
+    </tr>
+</table>

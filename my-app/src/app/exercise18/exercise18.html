@@ -1,0 +1,31 @@
+<!-- <div *ngIf="loading">Loading data...</div> -->
+<div *ngIf="errMessage" style="color: red">Error: {{ errMessage }}</div>
+<!-- 
+<div *ngIf="!loading && customers?.length === 0">
+  No customer groups returned. Raw JSON:
+  <pre>{{ customers | json }}</pre>
+</div> -->
+
+<div *ngFor="let customerGroups of customers">
+  <h2>{{ customerGroups.CustomerTypeName }}</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customerGroups.Customers">
+        <td>{{ customer.Id }}</td>
+        <td>{{ customer.Name }}</td>
+        <td>{{ customer.Email }}</td>
+        <td>{{ customer.Age }}</td>
+        <td><img [src]="customer.Image" [alt]="customer.Name" style="width: 100px; height: 100px;"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

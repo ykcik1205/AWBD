@@ -1,0 +1,123 @@
+<p class="error">{{errMessage}}</p>
+
+<div class="container">
+
+    <!-- FORM -->
+    <table class="form-table">
+        <tr>
+            <td>Book Name:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="BookName" id="BookName" placeholder="Enter Book Name"
+                [(ngModel)]="book.BookName"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="BookPrice" id="BookPrice" placeholder="Enter Price"
+                [(ngModel)]="book.Price"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Meta:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="BookMeta" id="BookMeta" placeholder="Enter Book Meta"
+                [(ngModel)]="book.Meta"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Date:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="BookDate" id="BookDate" placeholder="Enter Book Date"
+                [(ngModel)]="book.Date"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Inventory:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="BookInventory" id="BookInventory" placeholder="Enter Book Inventory"
+                [(ngModel)]="book.Inventory"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>CDId:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="CDId" id="CDId" placeholder="Enter CDId"
+                [(ngModel)]="book.CDId"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>NXBId:</td>
+            <td>
+                <input type="text" class="form-control"
+                name="NXBId" id="NXBId" placeholder="Enter NXBId"
+                [(ngModel)]="book.NXBId"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="button-group">
+                <button class="btn submit-btn" (click)="postBook()">Submit</button>
+
+                <!-- NÚT BACK -->
+                <button class="btn back-btn" routerLink="/">Back</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- TABLE LIST -->
+    <table class="list-table">
+
+        <tr>
+            <th>BookName</th>
+            <th>Price</th>
+            <th>Meta</th>
+            <th>Image</th>
+            <th>Date</th>
+            <th>Inventory</th>
+            <th>CDId</th>
+            <th>NXBId</th>
+        </tr>
+
+        <tbody>
+            <tr *ngFor="let book of books">
+
+                <td>{{book.BookName}}</td>
+
+                <td>{{book.Price}}</td>
+
+                <td>{{book.Meta}}</td>
+
+                <td>
+                    <img
+                    src="http://localhost:3003/static/images/{{book.Image}}"
+                    class="book-img">
+                </td>
+
+                <td>{{book.Date}}</td>
+
+                <td>{{book.Inventory}}</td>
+
+                <td>{{book.CDId}}</td>
+
+                <td>{{book.NXBId}}</td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

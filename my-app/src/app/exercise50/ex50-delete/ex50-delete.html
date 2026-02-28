@@ -1,0 +1,29 @@
+<p>{{errMessage}}</p>
+NXB ID: <input type="text" #NXBId> 
+<button (click)="deleteBook(NXBId.value)">Delete Book</button>
+<table border="1">
+    <tr>
+        <td>BookName</td>
+        <td>Price</td>
+        <td>Meta</td>
+        <td>Image</td>
+        <td>Date</td>
+        <td>Inventory</td>
+        <td>CDId</td>
+        <td>NXBId</td>
+    </tr>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.BookName}}</td>
+            <td>{{book.Price}} </td>
+            <td>{{book.Meta}}</td>
+            <td>
+                <img src="http://localhost:3003/static/images/{{book.Image}}" width="50px" height="50px">
+            </td>
+            <td>{{book.Date}}</td>
+            <td>{{book.Inventory}}</td>
+            <td>{{book.CDId}}</td>
+            <td>{{book.NXBId}}</td>
+        </tr>
+    </tbody>
+</table>

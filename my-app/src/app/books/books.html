@@ -1,0 +1,27 @@
+{{errMessage}}
+<a routerLink="/exercise43">Add New Book</a>
+<table border="1">
+    <tr>
+        <td>BookId</td>
+        <td>BookName</td>
+        <td>Price</td>
+        <td>Image</td>
+        <td>Action</td>
+    </tr>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.BookId}}</td>
+            <td>{{book.BookName}}</td>
+            <td>{{book.Price}} </td>
+            <td>
+                <img [routerLink]="['/exercise41', book.BookId]"
+                src="http://localhost:3000/static/images/{{book.Image}}" width="50px" height="50px"
+                style="cursor:pointer"/>
+            </td>
+            <td>
+                <a [routerLink]="['/exercise45', book.BookId]" style="cursor: pointer;">Edit</a> |
+                <a (click)="request_delete(book.BookId)" style="cursor: pointer;">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

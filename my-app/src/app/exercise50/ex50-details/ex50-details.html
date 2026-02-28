@@ -1,0 +1,69 @@
+<div class="container">
+
+    <!-- Search + Back -->
+    <div class="top-bar">
+        <div class="search-box">
+            <label>NXB ID:</label>
+            <input type="text" #NXBId>
+            <button class="btn search-btn"
+                (click)="searchBook(NXBId.value)">Search</button>
+        </div>
+
+        <button class="btn back-btn" routerLink="/exercise50">
+            ← Back
+        </button>
+    </div>
+
+    <p class="error">{{errMessage}}</p>
+
+    <!-- Book card -->
+    <div class="card">
+
+        <table class="book-table">
+
+            <tr>
+                <td class="label">Book Name</td>
+                <td>{{book.BookName}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Price</td>
+                <td>{{book.Price}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Meta</td>
+                <td class="meta">{{book.Meta}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Date</td>
+                <td>{{book.Date}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Inventory</td>
+                <td>{{book.Inventory}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">CDId</td>
+                <td>{{book.CDId}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">NXBId</td>
+                <td>{{book.NXBId}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="image-cell">
+                    <img src="http://localhost:3003/static/images/{{book.Image}}">
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>

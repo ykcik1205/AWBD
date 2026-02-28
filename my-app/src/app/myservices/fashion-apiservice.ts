@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/internal/operators/map';
+import { Fashion } from '../classes/ifashion';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, Observable, retry, throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FashionAPIService {
+  constructor(private _http: HttpClient) { }
+  getFashions():Observable<any>
+  {
+    const headers=new HttpHeaders().set("Content-Type","text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers:headers,
+      responseType:"text"
+    }
+  return this._http.get<any>("http://localhost:3002/fashions",requestOptions).pipe(
+  map(res=>JSON.parse(res) as Array<Fashion>),
+  retry(3),
+  catchError(this.handleError))
+  }
+  handleError(error:HttpErrorResponse){
+    return throwError(()=>new Error(error.message))
+  }
+}

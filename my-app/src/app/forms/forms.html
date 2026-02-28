@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <form [formGroup]="regForm">
+    <h3 class="text-center">Đăng ký khóa học</h3>
+    
+    <div class="mb-3">
+      <label for="name">Tên:</label>
+      <input type="text" class="form-control" id="name" formControlName="name"
+       placeholder="Nhập tên"
+       [class.is-invalid]="regForm.get('name')?.invalid && regForm.get('name')?.touched">
+        <small class="text-danger" *ngIf="regForm.get('name')?.invalid && regForm.get('name')?.touched">
+        Bạn chưa nhập tên></small>
+        <small class="text-danger" *ngIf="regForm.get('name')?.errors?.['minlength'] && regForm.get('name')?.touched">
+        Tên phải có ít nhất 3 ký tự
+        </small>
+        <small class="text-danger" *ngIf="regForm.get('name')?.errors?.['nameNotMatch'] && regForm.get('name')?.touched">
+        Tên không được chứa ký tự đặc biệt
+        </small>
+    </div>
+
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email"
+       placeholder="Nhập địa chỉ email"
+       [class.is-invalid]="regForm.get('email')?.invalid && regForm.get('email')?.touched">
+         <div *ngIf="regForm.get('email')?.invalid && regForm.get('email')?.touched">
+  <small class="text-danger" *ngIf="regForm.get('email')?.errors?.['required']">
+    Bạn chưa nhập email
+  </small>
+  <small class="text-danger" *ngIf="regForm.get('email')?.errors?.['email']">
+    Email không hợp lệ
+  </small>
+</div>
+
+    </div>
+
+    <!-- <div class="mb-3">
+    <label for="password">Password:</label>
+    <input 
+      type="password" 
+      class="form-control" 
+      id="password" 
+      formControlName="password"
+      [class.is-invalid]="password.invalid && password.touched">
+    
+    <small 
+      class="text-danger" 
+      *ngIf="password.errors?.['required'] && password.touched">
+      Bạn chưa nhập mật khẩu
+    </small>
+    </div>
+
+    <div class="mb-3">
+    <label for="confirmPass">Confirm form:</label>
+    <input 
+      type="password" 
+      class="form-control" 
+      id="confirmPass" 
+      formControlName="confirmPass"
+      [class.is-invalid]="confirmPass.invalid && confirmPass.touched">
+      <small class="text-danger" *ngIf="regForm.errors?.['misMatch'] && confirmPass.touched">
+        Mật khẩu không trùng khớp
+      </small>
+  </div> -->
+
+  <!-- Nút để load default values -->
+  <!-- <button type="button" class="btn btn-secondary" (click)="setDefaultValues()">
+    Default values
+  </button> -->
+
+    <div class="mb-3">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" id="phone" name="phone"
+       [(ngModel)]="studentModel.phone"
+       [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="mb-3">
+      <label for="course">Course:</label>
+      <select class="form-control" id="course" name="course"
+        [(ngModel)]="studentModel.course"
+        [ngModelOptions]="{standalone: true}"
+        #course="ngModel"
+    [class.is-invalid]="errFlag && course.touched"
+    (blur)="validateCourse(course.value)"
+    (change)="validateCourse(course.value)"
+    required>
+    <option value="none">------------</option>
+    <option *ngFor="let course of courses" [value]="course">{{course}}</option>
+  </select>
+
+  <small 
+    class="text-danger" 
+    [class.d-none]="!errFlag || course.untouched">
+    Please choose course
+  </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Radio time:</label>
+      <input type="radio" id="morning" name="time" value="sang" [(ngModel)]="studentModel.time" [ngModelOptions]="{standalone: true}"> Sáng
+      <input type="radio" id="evening" name="time" value="toi" [(ngModel)]="studentModel.time" [ngModelOptions]="{standalone: true}" class="ms-3"> Tối
+    </div>
+
+    <div class="mb-3">
+      <input type="checkbox" id="agree" name="agree" [(ngModel)]="studentModel.agree"
+       [ngModelOptions]="{standalone: true}"> Agree policy
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid || course.value == 'none' || !studentModel.agree">Submit</button>
+  </form>
+
+  <p>{{studentModel | json}}</p>
+</div>

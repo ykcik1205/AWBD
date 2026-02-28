@@ -1,0 +1,115 @@
+<p class="error">{{errMessage}}</p>
+
+<!-- Back button -->
+<button class="back-btn" routerLink="/exercise50">
+    ← Back
+</button>
+
+<table class="form-table">
+
+    <tr>
+        <td class="label">Book Name:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.BookName"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">Price:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.Price"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">Meta:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.Meta"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">Date:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.Date"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">Inventory:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.Inventory"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">CDId:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.CDId"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">NXBId:</td>
+        <td>
+            <input type="text"
+            [(ngModel)]="book.NXBId"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" class="center">
+            <button class="update-btn"
+            (click)="putBook()">Update</button>
+        </td>
+    </tr>
+
+</table>
+
+
+<table class="list-table">
+
+    <tr>
+        <th>BookName</th>
+        <th>Price</th>
+        <th>Meta</th>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Inventory</th>
+        <th>CDId</th>
+        <th>NXBId</th>
+    </tr>
+
+    <tbody>
+
+        <tr *ngFor="let book of books">
+
+            <td>{{book.BookName}}</td>
+
+            <td>{{book.Price}}</td>
+
+            <td class="meta">{{book.Meta}}</td>
+
+            <td>
+                <img src="http://localhost:3003/static/images/{{book.Image}}">
+            </td>
+
+            <td>{{book.Date}}</td>
+
+            <td>{{book.Inventory}}</td>
+
+            <td>{{book.CDId}}</td>
+
+            <td>{{book.NXBId}}</td>
+
+        </tr>
+
+    </tbody>
+
+</table>

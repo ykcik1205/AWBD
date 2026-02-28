@@ -1,0 +1,108 @@
+.container{
+    width: 900px;
+    margin: auto;
+    font-family: Arial;
+}
+
+/* top */
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* card */
+.card{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* form */
+.form-table{
+    width: 100%;
+}
+
+.label{
+    width: 150px;
+    font-weight: bold;
+}
+
+.input{
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.textarea{
+    height: 80px;
+}
+
+.center{
+    text-align: center;
+}
+
+/* buttons */
+.btn{
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.update-btn:hover{
+    background-color: #388E3C;
+}
+
+.back-btn{
+    background-color: #555;
+    color: white;
+}
+
+.back-btn:hover{
+    background-color: #333;
+}
+
+/* list table */
+.list-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.list-table th{
+    background-color: #f2f2f2;
+}
+
+.list-table th,
+.list-table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.list-table tr:hover{
+    background-color: #f9f9f9;
+}
+
+.list-table img{
+    width: 50px;
+}
+
+/* meta */
+.meta{
+    text-align: left;
+}
+
+/* error */
+.error{
+    color: red;
+}
