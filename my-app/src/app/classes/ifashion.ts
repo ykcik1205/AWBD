@@ -1,4 +1,4 @@
-export class Fashion{
+export class IFashion{
     constructor(
     public _id:any=null,
     public style:string="",

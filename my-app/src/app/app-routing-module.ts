@@ -19,13 +19,20 @@ import { BookNew } from './book-new/book-new';
 import { Books } from './books/books';
 import { BookUpdate } from './book-update/book-update';
 import { BookDelete } from './book-delete/book-delete';
-import { Fashion } from './classes/ifashion';
 import { Exercise50 } from './exercise50/exercise50/exercise50';
 import { BookDetails } from './book-details/book-details';
 import { FakeProduct } from './fake-product/fake-product';
 import { FakeProductEx27 } from './fake-product-ex27/fake-product-ex27';
+import { Fashion } from './fashion/fashion';
+import { FashionDetails } from './fashion-details/fashion-details';
+import { Login } from './login/login';
+import { Menu } from './menu/menu';
+import { AuthGuard } from './auth-guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: Login },
+  { path: 'menu', component: Menu, canActivate: [AuthGuard] },
   { path: "introduction", component: About },
   { path: "product1", component: Listproduct1 },
   { path: "product2", component: Listproduct2 },
@@ -56,6 +63,8 @@ const routes: Routes = [
   { path:"exercise50-edit/:id",component: Ex50Edit },
   { path:"exercise50-delete",component: Ex50Delete },
   { path:"exercise50-delete/:id",component: Ex50Delete },
+  { path:"exercise53-details",component: FashionDetails },
+  { path:"exercise53-details/:id",component: FashionDetails },
   { path: "not-found", component: PagenotFound }
 ];
 

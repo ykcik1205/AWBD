@@ -38,6 +38,9 @@ import { FakeProductEx27 } from './fake-product-ex27/fake-product-ex27';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Fashion } from './fashion/fashion';
+import { FashionDetails } from './fashion-details/fashion-details';
+import { Login } from './login/login';
+import { Menu } from './menu/menu';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,10 @@ import { Fashion } from './fashion/fashion';
     BookDetails,
     FakeProduct,
     FakeProductEx27,
-    Fashion
+    Fashion,
+    FashionDetails,
+    Login,
+    Menu
   ],
   imports: [
     BrowserModule,

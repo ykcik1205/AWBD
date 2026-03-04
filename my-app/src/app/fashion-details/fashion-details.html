@@ -1,0 +1,27 @@
+Fashion Id:
+<input type="text" #_id>
+<button (click)="searchFashion(_id.value)">Search</button>
+
+<table *ngIf="fashion">
+    <tr>
+        <td>Id:</td>
+        <td>{{ fashion._id }}</td>
+    </tr>
+    <tr>
+        <td>Fashion Subject:</td>
+        <td>{{ fashion.fashion_subject }}</td>
+    </tr>
+    <tr>
+        <td>Details:</td>
+        <td>{{ fashion.fashion_detail }}</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img 
+                *ngIf="fashion?.fashion_image"
+                [src]="fashion.fashion_image"
+                width="300"
+                />
+        </td>
+    </tr>
+</table>

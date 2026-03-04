@@ -16,4 +16,12 @@ export class Fashion {
       error:(err)=>{this.errMessage=err}
     })
   }
+  // get_image(base64:string)
+  // {
+  //   if(base64==null)return ""
+  //   let prefix="data:image/png;base64,"
+  //   if(base64.startsWith(prefix))
+  //     return base64
+  //   return prefix + base64
+  // }
 }

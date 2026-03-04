@@ -25,3 +25,121 @@ app.get("/fashions",cors(),async (req,res)=>{
     res.send(result)
     }
 )
+app.get("/fashions/:id", cors(), async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await fashionCollection.findOne({
+            _id: new ObjectId(id)
+        });
+        if (!result) {
+            return res.status(404).send("Not found");
+        }
+        res.json(result);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+const bcrypt = require("bcrypt");
+userCollection = database.collection("User");
+
+app.post("/register", async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const existing = await userCollection.findOne({ username });
+        if (existing) {
+            return res.status(400).send("User already exists");
+        }
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = {
+            username,
+            password: hashedPassword,
+            createdAt: new Date(),
+            lastLogin: null
+        };
+        await userCollection.insertOne(newUser);
+        res.json({ message: "User created successfully" });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+app.post("/login", async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        const user = await userCollection.findOne({ username });
+        if (!user) {
+            return res.status(401).send("Invalid username");
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).send("Invalid password");
+        }
+        // update lastLogin
+        await userCollection.updateOne(
+            { _id: user._id },
+            { $set: { lastLogin: new Date() } }
+        );
+        res.json({
+            message: "Login successful",
+            user: {
+                _id: user._id,
+                username: user.username,
+                createdAt: user.createdAt,
+                lastLogin: new Date()
+            }
+        });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+app.get("/create-cookie",cors(),(req,res)=>{
+    res.cookie("username","vickyphan")
+    res.cookie("password","123456")
+    account={"username":"vickyphan",
+    "password":"123456"}
+    res.cookie("account",account)
+    res.send("cookies are created")
+})
+
+app.get("/read-cookie",cors(),(req,res)=>{
+    //cookie is stored in client, so we use req
+    username=req.cookies.username
+    password=req.cookies.password
+    account=req.cookies.account
+    infor="username = "+username+"<br/>"
+    infor+="password = "+password+"<br/>"
+    if(account!=null)
+    {
+        infor+="account.username = "+account.username+"<br/>"
+        infor+="account.password = "+account.password+"<br/>"
+    } 
+    res.send(infor) 
+    //Expires after 360000 ms from the time it is set.
+    res.cookie("infor_limit1", 'I am limited Cookie - way 1', {expire: 360000 + Date.now()}); 
+    res.cookie("infor_limit2", 'I am limited Cookie - way 2', {maxAge: 360000});
+})
+
+app.get("/clear-cookie",cors(),(req,res)=>{
+    res.clearCookie("account")
+    res.send("[account] Cookie is removed") 
+})
+
+var session = require('express-session');
+app.use(session({secret: "Shh, its a secret!"}));
+
+app.get("/contact",cors(),(req,res)=>{
+    if(req.session.visited!=null)
+    {
+        req.session.visited++
+        res.send("You visited this page "+req.session.visited +" times")
+    }
+    else
+    {
+        req.session.visited=1
+        res.send("Welcome to this page for the first time!")
+    }
+})
