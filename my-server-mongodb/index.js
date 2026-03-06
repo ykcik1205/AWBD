@@ -7,7 +7,7 @@ const bodyParser=require("body-parser")
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const cors=require("cors");
-app.use(cors())
+app.use(cors());
 app.listen(port,()=>{
 console.log(`My Server listening on port ${port}`)
 })
@@ -39,6 +39,52 @@ app.get("/fashions/:id", cors(), async (req, res) => {
         res.status(500).send(err.message);
     }
 });
+app.post("/fashions", async (req, res) => {
+    try {
+        const newFashion = req.body;
+        const result = await fashionCollection.insertOne(newFashion);
+        res.json(result);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
+app.put("/fashions/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updateData = {
+            fashion_subject: req.body.fashion_subject,
+            fashion_detail: req.body.fashion_detail,
+            fashion_image: req.body.fashion_image
+        };
+        const result = await fashionCollection.updateOne(
+            { _id: new ObjectId(id) },
+            { $set: updateData }
+        );
+        if (result.matchedCount === 0) {
+            return res.status(404).send("Fashion not found");
+        }
+        res.json({ message: "Update successful" });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
+app.delete("/fashions/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await fashionCollection.deleteOne({
+            _id: new ObjectId(id)
+        });
+        if (result.deletedCount === 0) {
+            return res.status(404).send("Not found");
+        }
+        res.json({ message: "Deleted successfully" });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
 const bcrypt = require("bcrypt");
 userCollection = database.collection("User");
 
@@ -65,7 +111,6 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
     try {
         const { username, password } = req.body;
-
         const user = await userCollection.findOne({ username });
         if (!user) {
             return res.status(401).send("Invalid username");

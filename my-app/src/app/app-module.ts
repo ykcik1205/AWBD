@@ -41,6 +41,8 @@ import { Fashion } from './fashion/fashion';
 import { FashionDetails } from './fashion-details/fashion-details';
 import { Login } from './login/login';
 import { Menu } from './menu/menu';
+import { FashionEdit } from './fashion-edit/fashion-edit';
+import { FashionDelete } from './fashion-delete/fashion-delete';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { Menu } from './menu/menu';
     Fashion,
     FashionDetails,
     Login,
-    Menu
+    Menu,
+    FashionEdit,
+    FashionDelete
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@
         <td>Fashion Subject</td>
         <td>Fashion Detail</td>
         <td>Image</td>
+        <td>Action</td>
     </tr>
     <tbody>
         <tr *ngFor="let fashion of fashions">
@@ -14,6 +15,10 @@
             <td>
                 <img [routerLink]="['/exercise53-details', fashion._id]" src="{{fashion.fashion_image}}" width="100px" height="100px"
                 style="cursor:pointer"/>
+            </td>
+            <td>
+                <button routerLink="/exercise53-edit/{{fashion._id}}" style="cursor: pointer;">Edit</button>
+                <button routerLink="/exercise53-delete/{{fashion._id}}" style="cursor: pointer;">Delete</button>
             </td>
         </tr>
     </tbody>

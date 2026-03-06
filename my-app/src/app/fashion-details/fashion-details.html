@@ -1,8 +1,7 @@
-Fashion Id:
-<input type="text" #_id>
+Fashion Id: <input type="text" #_id>
 <button (click)="searchFashion(_id.value)">Search</button>
 
-<table *ngIf="fashion">
+<table>
     <tr>
         <td>Id:</td>
         <td>{{ fashion._id }}</td>
@@ -18,7 +17,7 @@ Fashion Id:
     <tr>
         <td colspan="2">
             <img 
-                *ngIf="fashion?.fashion_image"
+                
                 [src]="fashion.fashion_image"
                 width="300"
                 />

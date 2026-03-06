@@ -28,6 +28,8 @@ import { FashionDetails } from './fashion-details/fashion-details';
 import { Login } from './login/login';
 import { Menu } from './menu/menu';
 import { AuthGuard } from './auth-guard';
+import { FashionEdit } from './fashion-edit/fashion-edit';
+import { FashionDelete } from './fashion-delete/fashion-delete';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -65,6 +67,10 @@ const routes: Routes = [
   { path:"exercise50-delete/:id",component: Ex50Delete },
   { path:"exercise53-details",component: FashionDetails },
   { path:"exercise53-details/:id",component: FashionDetails },
+  { path:"exercise53-edit",component: FashionEdit },
+  { path:"exercise53-edit/:id",component: FashionEdit },
+  { path:"exercise53-delete",component: FashionDelete },
+  { path:"exercise53-delete/:id",component: FashionDelete },
   { path: "not-found", component: PagenotFound }
 ];
 
