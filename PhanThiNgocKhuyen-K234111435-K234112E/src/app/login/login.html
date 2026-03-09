@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <h2>Login</h2>
+
+    <input
+      type="text"
+      placeholder="Username"
+      [(ngModel)]="username">
+
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password">
+
+    <button (click)="onLogin()">Login</button>
+
+    <p class="success">{{successMessage}}</p>
+
+    <p class="error">{{message}}</p>
+
+  </div>
+
+</div>

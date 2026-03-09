@@ -1,7 +1,9 @@
-{
-  "/api": {
-    "target": "http://localhost:3002",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
+[
+  {
+        "context": ["/products"],
+        "target": "https://fakestoreapi.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+]

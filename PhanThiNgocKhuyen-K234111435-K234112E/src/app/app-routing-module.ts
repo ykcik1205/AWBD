@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { About } from './about/about';
 import { PageNotFound } from './page-not-found/page-not-found';
+import { authGuard } from './auth-guard';
 
 const routes: Routes = [
-  { path: 'introduction', component: About },
+  { path: '', redirectTo: 'not-found', pathMatch: 'full' },
+  { path: 'introduction', component: About, canActivate:[authGuard] },
   { path: "not-found", component: PageNotFound }
 ];
 
