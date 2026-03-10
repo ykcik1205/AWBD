@@ -1,67 +1,42 @@
-*{
-    margin:0;
-    padding:0;
+/* MENU */
+.menu-bar{
+  background:#333;
 }
-#container
-{
-    border:1px solid blue;
-    background:gray;
-    float:left;
-    top:60px;
-    text-indent:0px;
+
+.menu-bar ul{
+  list-style:none;
+  display:flex;
+  margin:0;
+  padding:0;
 }
-#container ul
-{
-    float:left;
-    list-style: none;
+
+.menu-bar li{
+  padding:14px 20px;
 }
-#container ul li
-{
-    position:relative;
-    float:left;
+
+.menu-bar a{
+  color:white;
+  text-decoration:none;
 }
-#container ul li a
-{
-    display:block;
-    color:black;
-    font-weight:bold;
-    text-decoration: none;
-    padding:.3em 6px;
+
+.welcome{
+  margin-left:auto;
 }
-#container li a:hover
-{
-    color:white;
-    background:orange;
+
+/* LAYOUT */
+.layout{
+  display:flex;
 }
-#container li ul
-{
-    position:absolute;
-    display:none;
-    width:10em
+
+/* A */
+.sidebar{
+  width:30%;
+  border-right:1px solid #ddd;
+  padding:20px;
 }
-#container li:hover ul
-{
-    display:block;
-}
-#container ul li ul li 
-{
-    width:100%;
-    border: 1px solid green
-}
-/* added: ensure main content sits below the floated menu */
-.main-content {
-    clear: both;
-    padding: 16px 8px;
-    box-sizing: border-box;
-}
-.logout-btn{
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 8px 15px;
-  border: none;
-  background: #ff5a8a;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+
+/* C */
+.content{
+  width:70%;
+  padding:20px;
 }

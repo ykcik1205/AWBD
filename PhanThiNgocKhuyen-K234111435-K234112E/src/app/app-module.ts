@@ -12,6 +12,10 @@ import { PageNotFound } from './page-not-found/page-not-found';
 import { Login } from './login/login';
 import { Fake } from './fake/fake';
 import { Books } from './books/books';
+import { Cart } from './cart/cart';
+import { Revenue } from './revenue/revenue';
+import { VIP } from './vip/vip';
+import { Shopping } from './shopping/shopping';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { Books } from './books/books';
     PageNotFound,
     Login,
     Fake,
-    Books
+    Books,
+    Cart,
+    Revenue,
+    VIP,
+    Shopping
   ],
   imports: [
     BrowserModule,

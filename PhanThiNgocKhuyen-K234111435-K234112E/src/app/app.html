@@ -7,60 +7,51 @@
 
 <!-- MAIN APP -->
 <div *ngIf="isLoggedIn">
-  <button class="logout-btn" (click)="logout()">Logout</button>
-  <div id="container">
+
+  <!-- B : MENU -->
+  <div class="menu-bar">
     <ul>
-      <li><a routerLink="/not-found">HOME</a></li>
 
-      <li><a href="#">PRODUCTS</a>
+      <li>
+        <a routerLink="/shopping">SHOPPING</a>
+      </li>
+      <li><a href = "#">CARTS</a>
         <ul>
-          <li><a href="#">Product 1</a></li>
-          <li><a href="#">Product 2</a></li>
-          <li><a href="#">Product 3</a></li>
+          <li>
+            <a routerLink="/cart">CURRENT CART</a>
+          </li>
+
+     <li *ngIf="role=='employee'">
+        <a routerLink="/revenue">REVENUE STATISTICS</a>
+      </li>
+
+      <li *ngIf="role=='employee'">
+        <a routerLink="/vip">VIP CUSTOMERS</a>
+      </li>
         </ul>
       </li>
 
-      <li><a href="#">CUSTOMERS</a>
-        <ul>
-          <li><a href="#">Customer List</a></li>
-          <li><a href="#">Customer List - Service</a></li>
-          <li><a href="#">Customer List - HTTP Service</a></li>
-        </ul>
+      <li class="welcome">
+        <a (click)="logout()">Welcome {{username}}</a>
       </li>
 
-      <li><a href="#">FORMS</a>
-        <ul>
-          <li><a href="#">Form</a></li>
-          <li><a href="#">Reactive Form</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">External API</a>
-        <ul>
-          <li><a href="#">Exercise26</a></li>
-          <li><a href="#">Exercise27</a></li>
-          <li><a href="#">Exercise28</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">INTERNAL API</a>
-        <ul>
-          <li><a href="#">Exercise39</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">MongoDB - REST API</a>
-        <ul>
-          <li><a href="#">Exercise 53</a></li>
-        </ul>
-      </li>
-
-      <li><a routerLink="/introduction">ABOUT</a></li>
     </ul>
   </div>
 
-  <div class="main-content">
-    <router-outlet></router-outlet>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- A : ABOUT -->
+    <div class="sidebar">
+      <app-about></app-about>
+    </div>
+
+    <!-- C : CONTENT -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </div>
